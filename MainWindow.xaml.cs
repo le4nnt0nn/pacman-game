@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace pacman_game
 {
@@ -20,9 +21,33 @@ namespace pacman_game
     /// </summary>
     public partial class MainWindow : Window
     {
+        DispatcherTimer gameTimer = new DispatcherTimer();
+
+        bool goLeft, goRight, goUp, goDown;
+        bool noLeft, noRight, noUp, noDown;
+
+        int speed = 8;
+
+        Rect pacmanHitBox;
+
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void CanvasKeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void GameSetUp()
+        {
+
+        }
+
+        private GameOver()
+        {
+
         }
     }
 }
