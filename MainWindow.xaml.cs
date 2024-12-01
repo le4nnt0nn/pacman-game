@@ -30,9 +30,17 @@ namespace pacman_game
 
         Rect pacmanHitBox;
 
+        int ghostSpeed = 10;
+        int ghostMoveStep = 130;
+        int currentGhostStep;
+        int score = 0;
+
+
         public MainWindow()
         {
             InitializeComponent();
+
+            GameSetUp();
         }
 
         private void CanvasKeyDown(object sender, KeyEventArgs e)
@@ -43,9 +51,37 @@ namespace pacman_game
         private void GameSetUp()
         {
 
+            MyCanvas.Focus();
+
+            gameTimer.Tick += GameLoop;
+            gameTimer.Interval = TimeSpan.FromMilliseconds(20);
+            gameTimer.Start();
+            currentGhostStep = ghostMoveStep;
+
+            ImageBrush pacmanImage = new ImageBrush();
+            pacmanImage.ImageSource = new BitmapImage(new Uri("pack://aplication:,,,/images/pacman.jpg"));
+            pacman.Fill = pacmanImage;
+
+            ImageBrush redGhost = new ImageBrush();
+            redGhost.ImageSource = new BitmapImage(new Uri("pack://aplication:,,,/images/red.jpg"));
+            red.Fill = redGhost;
+
+            ImageBrush orangeGhost = new ImageBrush();
+            orangeGhost.ImageSource = new BitmapImage(new Uri("pack://aplication:,,,/images/orange.jpg"));
+            orange.Fill = pacmanImage;
+
+            ImageBrush pinkGhost = new ImageBrush();
+            pinkGhost.ImageSource = new BitmapImage(new Uri("pack://aplication:,,,/images/pink.jpg"));
+            pink.Fill = pacmanImage;
+
         }
 
-        private GameOver()
+        private void GameLoop(object? sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void GameOver()
         {
 
         }
