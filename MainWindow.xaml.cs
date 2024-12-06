@@ -59,26 +59,26 @@ namespace pacman_game
             currentGhostStep = ghostMoveStep;
 
             ImageBrush pacmanImage = new ImageBrush();
-            pacmanImage.ImageSource = new BitmapImage(new Uri("pack://aplication:,,,/images/pacman.jpg"));
+            pacmanImage.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/pacman.jpg"));
             pacman.Fill = pacmanImage;
 
             ImageBrush redGhost = new ImageBrush();
-            redGhost.ImageSource = new BitmapImage(new Uri("pack://aplication:,,,/images/red.jpg"));
+            redGhost.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/red.jpg"));
             red.Fill = redGhost;
 
             ImageBrush orangeGhost = new ImageBrush();
-            orangeGhost.ImageSource = new BitmapImage(new Uri("pack://aplication:,,,/images/orange.jpg"));
+            orangeGhost.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/orange.jpg"));
             orange.Fill = pacmanImage;
 
             ImageBrush pinkGhost = new ImageBrush();
-            pinkGhost.ImageSource = new BitmapImage(new Uri("pack://aplication:,,,/images/pink.jpg"));
+            pinkGhost.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/pink.jpg"));
             pink.Fill = pacmanImage;
 
         }
 
         private void GameLoop(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            
         }
 
         private void GameOver()
