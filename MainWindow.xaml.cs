@@ -45,6 +45,45 @@ namespace pacman_game
 
         private void CanvasKeyDown(object sender, KeyEventArgs e)
         {
+            if (e.Key == Key.Left && noLeft == false)
+            {
+                goRight = goUp = goDown = false;
+                noRight = noUp = noDown = false;
+
+                goLeft = true;
+
+                pacman.RenderTransform = new RotateTransform(-180, pacman.Width / 2, pacman.Height / 2);
+            }
+
+            if (e.Key == Key.Right && noRight == false)
+            {
+                goLeft = goUp = goDown = false;
+                noLeft = noUp = noDown = false;
+
+                goRight = true;
+
+                pacman.RenderTransform = new RotateTransform(0, pacman.Width / 2, pacman.Height / 2);
+            }
+
+            if (e.Key == Key.Up && noUp == false)
+            {
+                goLeft = goRight = goDown = false;
+                noLeft = noRight = noDown = false;
+
+                goUp = true;
+
+                pacman.RenderTransform = new RotateTransform(-90, pacman.Width / 2, pacman.Height / 2);
+            }
+
+            if (e.Key == Key.Down && noDown == false)
+            {
+                goLeft = goRight = goUp = false;
+                noLeft = noRight = noUp = false;
+
+                goDown = true;
+
+                pacman.RenderTransform = new RotateTransform(90, pacman.Width / 2, pacman.Height / 2);
+            }
 
         }
 
@@ -68,11 +107,11 @@ namespace pacman_game
 
             ImageBrush orangeGhost = new ImageBrush();
             orangeGhost.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/orange.jpg"));
-            orange.Fill = pacmanImage;
+            orange.Fill = orangeGhost;
 
             ImageBrush pinkGhost = new ImageBrush();
             pinkGhost.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/pink.jpg"));
-            pink.Fill = pacmanImage;
+            pink.Fill = pinkGhost;
 
         }
 
@@ -81,9 +120,13 @@ namespace pacman_game
             
         }
 
-        private void GameOver()
+        private void GameOver(string message)
         {
+            gameTimer.Stop();
+            MessageBox.Show(message, "The Pacman Game");
 
+            System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
+            Application.Current.Shutdown();
         }
     }
 }
