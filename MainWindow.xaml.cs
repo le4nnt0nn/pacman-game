@@ -117,7 +117,29 @@ namespace pacman_game
 
         private void GameLoop(object? sender, EventArgs e)
         {
-            
+            txtCore.Content = "Score: " + score;
+
+            if(goRight)
+            {
+                Canvas.SetLeft(pacman, Canvas.GetLeft(pacman) + speed);
+            }
+
+            if (goLeft)
+            {
+                Canvas.SetLeft(pacman, Canvas.GetLeft(pacman) - speed);
+            }
+
+            if (goUp)
+            {
+                Canvas.SetTop(pacman, Canvas.GetTop(pacman) - speed);
+            }
+
+            if (goDown)
+            {
+                Canvas.SetTop(pacman, Canvas.GetTop(pacman) + speed);
+            }
+
+
         }
 
         private void GameOver(string message)
