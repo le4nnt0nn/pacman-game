@@ -139,7 +139,27 @@ namespace pacman_game
                 Canvas.SetTop(pacman, Canvas.GetTop(pacman) + speed);
             }
 
+            if (goDown && Canvas.GetTop(pacman) + 80 > Application.Current.MainWindow.Height)
+            {
+                noDown = true;
+                goDown = false;
+            }
+            if (goUp && Canvas.GetTop(pacman) < 1)
+            {
+                noUp = true;
+                goUp = false;
+            }
 
+            if (goLeft && Canvas.GetLeft(pacman) - 10 < 1)
+            {
+                noLeft = true;
+                goLeft = false;
+            }
+            if (goRight && Canvas.GetLeft(pacman) + 70 > Application.Current.MainWindow.Height)
+            {
+                noRight = true;
+                goRight = false;
+            }
         }
 
         private void GameOver(string message)
